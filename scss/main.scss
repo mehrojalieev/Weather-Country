@@ -1,0 +1,54 @@
+@import "./block/block";
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+.container{
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+button, input{
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+:root{
+    --light-color: #fff;
+    --secondary-full-color: #080B14;
+    --secondary-color: #171B23;
+    --success-full-color: #71879B;
+    --smoking-color: #34333D;
+}
+
+body{
+    background-color: #232936;
+}
+
+.weather{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 20px;
+}
+
+::-webkit-scrollbar{
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--smoking-color); 
+    border-radius: 10px;
+  }

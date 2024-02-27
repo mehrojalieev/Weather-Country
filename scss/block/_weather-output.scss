@@ -1,0 +1,157 @@
+@mixin f-style($fSize, $fColor, $fWeight){
+    font-size: $fSize;
+    color: $fColor;
+    font-weight: $fWeight;
+}
+
+.weather__output-wrapper{
+    width: 600px;
+    height: 660px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: var(--secondary-full-color);
+    // background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/d8b05154827733.596dc77a0361f.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(15px) !important;
+}
+
+.weather__search-form{
+    display: flex;
+    width: 100%;
+    height: 46px;
+    border-radius: 20px;
+    padding: 0 10px;
+    overflow: hidden;
+    background-color: var(--smoking-color);
+    .search-input{
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        text-indent: 20px;
+        @include f-style(16px, var(--light-color),500 );
+    }
+    button{
+        span{
+            font-size: 26px;
+            color: var(--light-color);
+            cursor: pointer;
+        }
+    }
+}
+
+.current__weather-container{
+    width: 100%;
+    height: 580px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.current__weather-country{
+    width: 100%;
+    #current__country-name{
+        @include f-style(42px, var(--light-color), 700);
+        line-height: 26px;
+        letter-spacing: 1px;
+    };
+    .current-date{
+        font-size: 17px !important;
+    }
+}
+
+.current__weather-output{
+    display: inline-block;
+    text-align: center;
+    margin-top: 50px;
+    padding: 0 0.8rem;
+   
+    strong{
+        @include f-style(20px, var(--light-color), 500);
+        letter-spacing: 1px;
+        font-style: italic;
+        margin: 15px 0;
+    }
+    p{
+        margin-top: 20px !important;
+        max-width: 300px;
+        margin: auto;
+        @include f-style(13px, var(--light-color), 400);
+    }
+}
+
+.current__weather-info{
+    width: 400px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto !important;
+    h2{
+        @include f-style(54px, var(--light-color), 600);
+        margin-top: 20px;
+        margin-left: 30px !important;
+    }
+    img{
+        display: inline-block;
+        margin-top: 20px;
+        width: 95px;
+        height: 90px;
+        object-fit: cover;
+        border: none;
+    }
+}
+
+
+
+.current__action-container{
+    margin-top: 40px;
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 15px 0;
+}
+
+.action-card{
+    text-align: left;
+    width: 250px;
+    height: 130px;
+    border-radius: 10px;
+    padding: 7px 10px;
+    background-color: var(--smoking-color);
+    .card-temp{
+        margin-top: 7px;
+        letter-spacing: 1px;
+        @include f-style(22px, var(--light-color), 600);
+    }
+    p{
+        @include f-style(12px, var(--light-color), 400);
+        margin-top: 18px;
+        opacity: 0.7;
+    }
+    h6{
+        @include f-style(14px, var(--light-color), 500);
+        margin-top: 7px;
+        opacity: 0.8;
+        letter-spacing: 1px;
+        margin: 15px 0 5px 0 !important;
+    }
+    strong{
+        @include f-style(13px, var(--light-color), 400);
+        margin-top: 20px;
+    }
+}
+
+.card-header{
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    span{
+        color: var(--success-full-color);
+        font-size: 26px;
+    }
+    h3{
+        font-size: 15px;
+        color: var(--success-full-color);
+    }
+}
