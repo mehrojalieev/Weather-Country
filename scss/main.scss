@@ -9,7 +9,7 @@
 }
 .container{
     width: 100%;
-    max-width: 1300px;
+    // max-width: 1500px;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -22,23 +22,33 @@ button, input{
 
 :root{
     --light-color: #fff;
-    --secondary-full-color: #080B14;
-    --secondary-color: #171B23;
+    --secondary-full-color: #080b1477;
+    --secondary-color: #171b23bd;
     --success-full-color: #71879B;
-    --smoking-color: #34333D;
+    --smoking-color: #34333dc5;
 }
 
 body{
     background-color: #232936;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .weather{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    column-gap: 20px;
+    justify-content: center;
+    column-gap: 1px;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: var(--secondary-full-color);
+
 }
 
 ::-webkit-scrollbar{

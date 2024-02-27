@@ -6,14 +6,13 @@
 
 .weather__output-wrapper{
     width: 600px;
-    height: 660px;
+    height: 650px;
     border-radius: 10px;
     padding: 5px;
-    background-color: var(--secondary-full-color);
     // background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/d8b05154827733.596dc77a0361f.gif");
     background-repeat: no-repeat;
     background-size: cover;
-    backdrop-filter: blur(15px) !important;
+    backdrop-filter: blur(2px) !important;
 }
 
 .weather__search-form{
@@ -44,6 +43,9 @@
     width: 100%;
     height: 580px;
     border-radius: 10px;
+    margin-top: 10px;
+    background-color: var(--secondary-full-color);
+
     text-align: center;
 }
 
@@ -115,7 +117,7 @@
 .action-card{
     text-align: left;
     width: 250px;
-    height: 130px;
+    height: 120px;
     border-radius: 10px;
     padding: 7px 10px;
     background-color: var(--smoking-color);
