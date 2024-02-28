@@ -13,7 +13,6 @@
     <title>Weather Task</title>
 </head>
 <body>
-    <!-- <div class="container"> -->
         <div class="weather">
             <div class="weather__output-wrapper">
                     <form id="search-form" class="weather__search-form">
@@ -89,36 +88,19 @@
                     </div>
                 </div>
                 <div class="daily-wrapper">
-                    <div class="hourly__wrapper-header">
+                    <div class="daily__wrapper-header">
                         <span class="material-symbols-outlined"> calendar_today </span>
                         <h3> 7-DAY  FORECAST</h3>
                     </div>
-                    <div id="daily__weather-container" class="hourly__weather-container">
+                    <div id="daily__weather-container" class="daily__weather-container">
 
                     </div>
                 </div>
-                <div class="forecast__action-container">
-                    <div class="forecast-card">
-                        <div class="forecast__card-header">
-                            <span class="material-symbols-outlined">thermostat</span>
-                            <h3>UV INDEX</h3>
-                        </div>
-                        <h2 class="uvi-index"></h2>
-                    </div>
-                    <div class="forecast-card">
-                        <div class="forecast__card-header">
-                            <span class="material-symbols-outlined">storm</span>
-                            <h3>WIND</h3>
-                        </div>
-                        <div class="wind-direction">
-                            <div class="wind-arrow">
-                                <i class="bi bi-triangle-fill"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="map-wrapper">
+                    <iframe id="map" src="https://maps.google.com/maps?q=Moscow%20Dates%10Products&amp;t=&amp;z=30&amp;output=embed" width=100% height="250" allowfullscreen frameborder="0"></iframe>
+                   </div>
+               
             </div>
         </div>
-    <!-- </div> -->
 </body>
 </html>

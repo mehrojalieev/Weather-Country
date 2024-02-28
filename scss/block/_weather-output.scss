@@ -9,9 +9,6 @@
     height: 650px;
     border-radius: 10px;
     padding: 5px;
-    // background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/d8b05154827733.596dc77a0361f.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
     backdrop-filter: blur(2px) !important;
 }
 
@@ -41,11 +38,10 @@
 
 .current__weather-container{
     width: 100%;
-    height: 580px;
+    height: 590px;
     border-radius: 10px;
     margin-top: 10px;
     background-color: var(--secondary-full-color);
-
     text-align: center;
 }
 
@@ -57,9 +53,6 @@
         line-height: 26px;
         letter-spacing: 1px;
     };
-    .current-date{
-        font-size: 17px !important;
-    }
 }
 
 .current__weather-output{
@@ -67,17 +60,19 @@
     text-align: center;
     margin-top: 50px;
     padding: 0 0.8rem;
-   
+
     strong{
-        @include f-style(20px, var(--light-color), 500);
-        letter-spacing: 1px;
+        @include f-style(22px, var(--light-color), 600);
+        letter-spacing: 2px;
         font-style: italic;
         margin: 15px 0;
     }
     p{
         margin-top: 20px !important;
-        max-width: 300px;
+        max-width: 450px;
         margin: auto;
+        opacity: 0.8;
+        min-height: 40px;
         @include f-style(13px, var(--light-color), 400);
     }
 }
@@ -105,26 +100,26 @@
 
 
 
+// CURRENT WEATHER ACTION STYLES
 .current__action-container{
     margin-top: 40px;
-   
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
     gap: 15px 0;
 }
 
 .action-card{
     text-align: left;
-    width: 250px;
-    height: 120px;
+    width: 270px;
+    max-height: 135px;
     border-radius: 10px;
-    padding: 7px 10px;
+    padding: 1rem;
     background-color: var(--smoking-color);
     .card-temp{
         margin-top: 7px;
         letter-spacing: 1px;
-        @include f-style(22px, var(--light-color), 600);
+        @include f-style(20px, var(--light-color), 600);
     }
     p{
         @include f-style(12px, var(--light-color), 400);
@@ -132,15 +127,16 @@
         opacity: 0.7;
     }
     h6{
-        @include f-style(14px, var(--light-color), 500);
-        margin-top: 7px;
+        @include f-style(13px, var(--light-color), 500);
+        margin-top: 5px;
         opacity: 0.8;
         letter-spacing: 1px;
         margin: 15px 0 5px 0 !important;
     }
     strong{
-        @include f-style(13px, var(--light-color), 400);
-        margin-top: 20px;
+        @include f-style(12px, var(--light-color), 400);
+        margin-top: 7px;
+        letter-spacing: 2px;
     }
 }
 

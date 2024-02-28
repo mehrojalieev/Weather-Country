@@ -7,58 +7,26 @@
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
 }
-.container{
-    width: 100%;
-    // max-width: 1500px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-button, input{
-    border: none;
-    background: transparent;
-    outline: none;
-}
-
-:root{
-    --light-color: #fff;
-    --secondary-full-color: #080b1477;
-    --secondary-color: #171b23bd;
-    --success-full-color: #71879B;
-    --smoking-color: #34333dc5;
-}
 
 body{
-    background-color: #232936;
+    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-repeat: no-repeat;
     background-size: cover;
+    justify-content: center;
+    background-color: #232936;
+    background-repeat: no-repeat;
 }
 
 .weather{
     width: 100%;
     height: 100%;
     display: flex;
+    padding: 1rem;
+    column-gap: 1px;
     align-items: center;
     justify-content: center;
-    column-gap: 1px;
-    border-radius: 10px;
-    padding: 1rem;
     background-color: var(--secondary-full-color);
 
 }
 
-::-webkit-scrollbar{
-    height: 10px;
-}
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--smoking-color); 
-    border-radius: 10px;
-  }
