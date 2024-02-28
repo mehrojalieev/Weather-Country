@@ -1,11 +1,10 @@
 .weather__daily-wrapper{
-    width: 700px;
-    height: 670px;
+    max-width: 668px !important;
     padding: 1rem;
     border-radius: 10px;
 }
 .hourly-wrapper, .daily-wrapper{
-    width: 100%;
+    width: 100% !important;
     height: 210px;
     border-radius: 10px;
     background-color: var(--secondary-color);
@@ -31,6 +30,7 @@
 }
 
 .hourly__weather-container, .daily__weather-container{
+    width: 100%;
     display: flex;
     align-items: center;
     column-gap: 20px;

@@ -6,6 +6,12 @@
     --smoking-color: #34333dc5;
 }
 
+@mixin f-style($fSize, $fColor, $fWeight){
+    font-size: $fSize;
+    color: $fColor;
+    font-weight: $fWeight;
+}
+
 
 ::-webkit-scrollbar{
     height: 10px;
