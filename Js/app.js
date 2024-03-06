@@ -1,10 +1,9 @@
 // --- ELEMENTS ---
 const CurrentWeatherBackground = document.querySelector(".weather__output-wrapper");
 const HourlyWeatherCards = document.querySelector("#hourly__weather-container");
-const CurrentWeatherOutput = document.querySelector("#current__weather-output");
 const DailyWeatherCards = document.querySelector("#daily__weather-container");
+const CurrentWeatherIcon = document.querySelector(".current__weather-info");
 const CurrentCountryName = document.querySelector("#current__country-name");
-const CurrentWeatherIcon = document.querySelector("#current__weather-icon");
 const CurrentDescription = document.querySelector("#current-description");
 const CurrentVisibility = document.querySelector("#current-visibility");
 const CurrentHumidity = document.querySelector("#current-humidity");
@@ -23,15 +22,16 @@ const CloudyImages = [
     'https://catherineasquithgallery.com/uploads/posts/2021-02/1612751479_207-p-goluboi-fon-s-oblakami-dlya-fotoshopa-254.jpg',
     'https://wp-s.ru/wallpapers/13/9/356138679766943/milye-oblaka-plyvut-po-nebu.jpg',
     'https://ak.picdn.net/shutterstock/videos/1056283103/thumb/1.jpg',
-    'https://rare-gallery.com/uploads/posts/530407-steeple-plose.jpg'
+    'https://rare-gallery.com/uploads/posts/530407-steeple-plose.jpg',
+    'https://i.pinimg.com/originals/71/17/33/7117333298dfc19b8d3fa01a4ae0938a.jpg'
+    
 ]
 const ClearImages = [
+    'https://ink-project.ru/sites/1-ink-project/photoalbums/17901.jpg',
     'https://catherineasquithgallery.com/uploads/posts/2021-02/1612766467_199-p-goluboi-fon-dlya-foto-239.jpg',
-    'https://catherineasquithgallery.com/uploads/posts/2021-02/1612767398_123-p-fon-goluboe-nebo-163.jpg',
     'https://pic.rutubelist.ru/user/90/46/9046a985684ad0e6c3beb00cc17b7596.jpg',
-    'https://w.forfun.com/fetch/ac/acf0ba2588cdf5635ee80a045cf89b90.jpeg',
     'https://images.hdqwalls.com/download/sky-minimal-2m-3840x2160.jpg',
-    'https://klike.net/uploads/posts/2023-04/1681702375_2-2.jpg',
+    'https://wpapers.ru/wallpapers/nature/14163/download/2560x1440_%D0%A1%D0%BE%D0%BB%D0%BD%D0%B5%D1%87%D0%BD%D0%B0%D1%8F-%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0.jpg'
 ]
 const SmokeImages = [
     'https://avatars.mds.yandex.net/i?id=c9cdc92cfabf1765a4ac62d0abc156e4_l-4966461-images-thumbs&ref=rim&n=13&w=1080&h=1131',
@@ -46,7 +46,14 @@ const SnowImages = [
 
 const MistImages = [
     'https://get.pxhere.com/photo/landscape-tree-nature-forest-grass-horizon-cloud-sky-fog-mist-field-meadow-sunlight-morning-hill-dawn-atmosphere-pasture-weather-haze-agriculture-plain-fog-bank-grassland-rural-area-atmospheric-phenomenon-atmosphere-of-earth-1051681.jpg',
-    'https://wallpaper-house.com/data/out/8/wallpaper2you_253816.jpg',
+    'https://wallpaper-house.com/data/out/8/wallpaper2you_253816.jpg',  
+    'https://artbizu.ru/images/product_images/popup_images/7358_4.jpg'
+]
+
+const HazeImages = [
+    'https://get.pxhere.com/photo/landscape-tree-nature-horizon-snow-cloud-fog-sunrise-mist-sunlight-morning-dawn-atmosphere-weather-haze-monochrome-mood-freezing-atmospheric-phenomenon-1207903.jpg',
+    'https://get.pxhere.com/photo/nature-horizon-cloud-fog-sunrise-mist-sunlight-morning-wind-dawn-atmosphere-weather-haze-darkness-plain-freezing-drizzle-atmospheric-phenomenon-atmosphere-of-earth-109047.jpg',
+    'https://get.pxhere.com/photo/tree-nature-horizon-cloud-fog-sunrise-mist-field-sunlight-morning-dawn-atmosphere-weather-haze-freezing-drizzle-atmospheric-phenomenon-atmosphere-of-earth-105738.jpg'
 ]
 
 // RANDOM IMAGES FUNCTIONS
@@ -72,6 +79,11 @@ function RandomMistImages() {
     return MistImages[randomIndex]
 }
 
+function RandomHazeImages() {
+    var randomIndex = Math.floor(Math.random() * HazeImages.length)
+    return HazeImages[randomIndex]
+}
+
 // LOAD COUNTRY'S WEATHER 
 document.addEventListener("DOMContentLoaded", Weatherdata)
 Form.addEventListener('submit', Weatherdata)
@@ -79,7 +91,6 @@ Form.addEventListener('submit', Weatherdata)
 async function Weatherdata(e) {
     e.preventDefault()
     try {
-
         let response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${SearchInput.value ? SearchInput.value : "Tashkent"}&appid=9dd86907fe501cec50da3d087e4e9dc0`);
         let WeatherLocation = await response?.json()
         const Lat = WeatherLocation[0]?.lat
@@ -123,18 +134,23 @@ function renderWeatherData(WeatherLocation, WeatherData, weatherIcon) {
     else if (WeatherData.current.weather[0].main === "Mist") {
         document.body.style = `background-image: url(${RandomMistImages()})`
     }
+    else if (WeatherData.current.weather[0].main === "Haze") {
+        document.body.style = `background-image: url(${RandomHazeImages()})`
+    }
 
 
     HourlyWeatherCards.innerHTML = ''
     DailyWeatherCards.innerHTML = ''
-    CurrentWeatherIcon.src = weatherIcon.url
+    CurrentWeatherIcon.innerHTML = `
+    <h2>${WeatherData.current.temp + '°'}</h2>
+    <img src=${weatherIcon.url}>
+    `
     CurrentDrop.innerHTML = WeatherData.current.dew_point
     CurrentCountryName.innerHTML = WeatherLocation[0].name
     CurrentDescription.innerHTML = WeatherData.daily[0].summary
     CurrentFeels.innerHTML = WeatherData.current.feels_like + '°'
     CurrentHumidity.innerHTML = WeatherData.current.humidity + '%'
     WeatherInfoDay.innerHTML = WeatherData.current.weather[0].main
-    CurrentWeatherOutput.innerHTML = WeatherData.current.temp + '°'
     CurrentVisibility.innerHTML = WeatherData.current.visibility + ' mi'
     HumidityPoint.innerHTML = `The dew point is ${WeatherData.current.dew_point} right now`
     map.src = `https://maps.google.com/maps?q=${WeatherLocation[0].name}%20Dates%10Products&amp;t=&amp;z=12&amp&output=embed`

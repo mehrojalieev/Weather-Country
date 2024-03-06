@@ -99,7 +99,8 @@
 }
 
 .action-card{
-    width: 270px;
+    width: 100%;
+    max-width: 270px;
     padding: 1rem;
     text-align: left;
     max-height: 135px;
@@ -139,5 +140,255 @@
     h3{
         @include f-style(15px, var(--success-full-color), 500 );
 
+    }
+}
+
+
+// ----- RESPONSIVE STYLES -----
+@media only screen and (max-width: 1130px){
+    .current__weather-info{
+        width: 100%;
+        max-width: 400px !important;
+        h2{
+            margin: 20px 0 0 30px !important;
+            @include f-style(48px, var(--light-color), 600);
+        }
+        img{
+            width: 90px;
+            height: 80px;
+        }
+    }
+    
+    .action-card{
+        max-width: 200px;
+        .card-temp{
+            margin-top: 7px;
+            letter-spacing: 1px;
+            @include f-style(18px, var(--light-color), 600);
+        }
+        p{
+            @include f-style(12px, var(--light-color), 400);
+            margin-top: 18px;
+        }
+        h6{
+            letter-spacing: 1px;
+            margin: 15px 0 5px 0 !important;
+            @include f-style(13px, var(--light-color), 500);
+        }
+        strong{
+            margin-top: 7px;
+            letter-spacing: 2px;
+            @include f-style(10px, var(--light-color), 400);
+        }
+    }
+}
+
+@media only screen and (max-width: 568px){
+    .current__action-container{
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .current__weather-info{
+        width: 100%;
+        max-width: 300px !important;
+        h2{
+            margin: 20px 10px 0 0px !important;
+            @include f-style(44px, var(--light-color), 600);
+        }
+        img{
+            width: 60px;
+            height: 80px;
+        }
+    }
+    
+    .action-card{
+        max-width: 240px;
+        padding: 0.8rem;
+        max-height: 125px;
+        .card-temp{
+            @include f-style(18px, var(--light-color), 600);
+        }
+        p{
+            @include f-style(11px, var(--light-color), 400);
+        }
+        h6{
+            margin: 15px 0 5px 0 !important;
+            @include f-style(12px, var(--light-color), 500);
+        }
+        strong{
+            margin-top: 7px;
+            letter-spacing: 2px;
+            @include f-style(10px, var(--light-color), 400);
+        }
+    }
+}
+
+@media only screen and (max-width: 458px){
+    .weather__search-form{
+        height: 40px;
+        button{
+            span{
+                @include f-style(22px, var(--light-color), 400 );
+            }
+        }
+    }
+    .current__action-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .current__weather-info{
+        max-width: 300px !important;
+        h2{
+            margin: 20px 10px 0 0px !important;
+            @include f-style(38px, var(--light-color), 600);
+        }
+        img{
+            margin-top:15px;
+            width: 60px;
+            height: 70px;
+        }
+    }
+    
+    .action-card{
+        max-width: 220px;
+        padding: 0.8rem;
+        max-height: 110px;
+        .card-temp{
+            @include f-style(16px, var(--light-color), 500);
+        }
+        p{
+            letter-spacing: 1px;
+            @include f-style(10px, var(--light-color), 400);
+        }
+        h6{
+            margin: 15px 0 5px 0 !important;
+            @include f-style(12px, var(--light-color), 500);
+        }
+        strong{
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 401px){
+    .weather__search-form{
+        height: 40px;
+        button{
+            span{
+                @include f-style(22px, var(--light-color), 400 );
+            }
+        }
+    }
+
+    .current__weather-info{
+        max-width: 200px !important;
+        h2{
+            margin: 20px 10px 0 0px !important;
+            @include f-style(38px, var(--light-color), 600);
+        }
+        img{
+            margin-top:15px;
+            width: 60px;
+            height: 70px;
+        }
+    }
+    
+    .action-card{
+        max-width: 220px;
+        padding: 0.8rem;
+        max-height: 110px;
+        .card-temp{
+            @include f-style(16px, var(--light-color), 500);
+        }
+        p{
+            letter-spacing: 1px;
+            line-height: 13px;
+            @include f-style(9px, var(--light-color), 400);
+        }
+        h6{
+            margin: 15px 0 5px 0 !important;
+            @include f-style(12px, var(--light-color), 500);
+        }
+        strong{
+            display: none;
+        }
+    }
+    .card-header{
+        column-gap: 6px;
+        align-items: center;
+        span{
+            @include f-style(20px, var(--success-full-color), 400 );
+        }
+        h3{
+            @include f-style(12px, var(--success-full-color), 500 );
+    
+        }
+    }
+}
+
+@media only screen and (max-width: 354px){
+    .weather__search-form{
+        height: 34px;
+        button{
+            span{
+                @include f-style(21px, var(--light-color), 400 );
+            }
+        }
+    }
+
+    .current__weather-country{
+        #current__country-name{
+            @include f-style(34px, var(--light-color), 600);
+        };
+    }
+
+    .current__weather-info{
+        max-width: 180px !important;
+        h2{
+            margin: 20px 10px 0 0px !important;
+            @include f-style(30px, var(--light-color), 600);
+        }
+        img{
+            margin-top:15px;
+            width: 55px;
+            height: 60px;
+        }
+    }
+    .current__action-container{
+        margin-top: 10px;
+    }
+    
+    .action-card{
+        max-width: 220px;
+        padding: 0.8rem;
+        max-height: 110px;
+        .card-temp{
+            @include f-style(16px, var(--light-color), 500);
+        }
+        p{
+            letter-spacing: 1px;
+            line-height: 13px;
+            @include f-style(8px, var(--light-color), 400);
+        }
+        h6{
+            margin: 15px 0 5px 0 !important;
+            @include f-style(12px, var(--light-color), 500);
+        }
+        strong{
+            display: none;
+        }
+    }
+    .card-header{
+        column-gap: 6px;
+        align-items: center;
+        span{
+            @include f-style(20px, var(--success-full-color), 400 );
+        }
+        h3{
+            @include f-style(12px, var(--success-full-color), 500 );
+    
+        }
     }
 }
